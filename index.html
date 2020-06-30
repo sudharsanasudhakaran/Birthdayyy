@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Birthday wish</title>
+        <style>
+            #countDown
+            {
+                font-size: 550px;
+                font-weight: 400;
+                margin-top: auto;
+                color: black;
+                margin-left: 510px;
+            }
+        </style>
+    </head>
+    <body>
+        <label id="countDown"></label>
+
+        <script>
+            var timer;
+            var counter = 10;
+            function startCounting( )
+            {
+                timer = window.setTimeout( "countDown()", 1000 );
+                document.getElementById("countDown").innerHTML = counter;    // show the initial value
+            }
+
+            function countDown( )
+            {
+                counter = counter - 1;
+                document.getElementById("countDown").innerHTML = counter;
+                if (counter == 0)
+                {
+                    window.clearTimeout( timer );
+                    timer = null;
+                    var id_val = document.getElementById("countDown");
+                    id_val.style["font-size"] = "200px";
+                    id_val.style["font-weight"] = "400";
+                    id_val.style["color"] = "green";
+                    id_val.style["marginLeft"] = "auto";
+                    id_val.style["margin-top"] = "50px";
+                    document.getElementById("countDown").innerHTML = "Happy Birthday!"
+                }
+                else
+                {
+                    timer = window.setTimeout( "countDown()", 1000);
+                }
+            }
+            startCounting();
+        </script>s
+    </body>
+</html>
